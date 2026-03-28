@@ -3,7 +3,7 @@ const baseDeDatosProyectos = {
     quirurgica: {
         titulo: "Surgical Planning and Segmentation of Biomodels",
         proyectos: [
-            { nombre: "Skull Segmentation", desc: "Segmentation of a patient's cranial biomodel and its subsequent modification for migraine surgical planning.", stl: "stl/craneo.stl" },
+            { nombre: "Skull Segmentation", desc: "Segmentation of a patient's cranial biomodel and its subsequent modification for migraine surgical planning.", stl: "stl/Craneo.stl" },
             { nombre: "Brain Aneurysm", desc: "Segmentation and 3D printing of a cerebral aneurysm from a DICOM image for surgical planning.", stl: "stl/aneurisma.stl" },
             { nombre: "Lower Limb Biomodels", desc: "Segmentation of biomodels of the femur and tibia before and after total knee replacement for subsequent assembly and finite element analysis.", stl: "stl/rodilla.stl" }
         ]
