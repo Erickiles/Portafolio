@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erick Iles | Biomedical Engineer</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="iconos/linkedin.png" alt="Erick Iles Logo" class="logo" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
+        </div>
+        
+        <nav class="nav-links">
+            <a href="#about">About me</a>
+            <a href="#expertise">Areas of Expertise</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#skills">Skills</a>
+        </nav>
+
+        <div class="nav-action">
+            <a href="ILES_CV.pdf" class="btn-download" target="_blank" rel="noopener noreferrer">Download CV</a>
+        </div>
+    </header>
+
+    <aside class="social-sidebar">
+        <a href="https://www.linkedin.com/in/erick-iles/" target="_blank" title="LinkedIn">
+            <img src="iconos/linkedin.png" alt="LinkedIn" class="social-icon">
+        </a>
+        
+        <a href="https://github.com/Erickiles?tab=repositories" target="_blank" title="GitHub">
+            <img src="iconos/github.png" alt="GitHub" class="social-icon">
+        </a>
+        
+        <a href="mailto:erickiles20@gmail.com" target="_blank" title="Email">
+            <img src="iconos/mail.png" alt="Email" class="social-icon">
+        </a>
+        
+        <a href="https://wa.me/593992816331" target="_blank" title="WhatsApp">
+            <img src="iconos/whatasapp.png" alt="WhatsApp" class="social-icon">
+        </a>
+    </aside>
+
+    <main>
+        
+        <section id="about" class="section-container hero">
+            <div class="hero-content">
+                <h1>Erick R. Iles Velez</h1>
+                <h2>Biomedical Engineer | Biomechanics & Medical Devices</h2>
+                <p>
+                    Biomedical engineer with professional experience in biomechanics for computer-assisted surgical planning, CAD/CAM design of customized anatomical biomodels, and the development and preventive and corrective maintenance of biomedical hospital monitoring equipment. I firmly believe in the results of collaborative work between engineering and medicine for the benefit of patients. I identify myself as a proactive person who, regardless of the role I play, seeks to serve and contribute significantly to the team in order to achieve collective goals. I am open to new experiences and eager to learn as much as possible to enhance my professional and personal growth.
+                </p>
+            </div>
+            <div class="hero-image-container">
+                <img src="Erick Ramiro Iles Velez.png" alt="Erick Iles Profile" class="hero-image" onerror="this.src='https://via.placeholder.com/400?text=Tu+Foto'">
+            </div>
+        </section>
+
+        <section id="expertise" class="section-container">
+            <h2 class="section-title">Areas of Expertise</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card card-surgical" onclick="abrirCategoria('quirurgica')">
+                    <h3>Surgical Planning</h3>
+                    <p>3D Reconstruction of Biomodels from DICOM Images.</p>
+                </div>
+                
+                <div class="category-card card-medical" onclick="abrirCategoria('dispositivos')">
+                    <h3>Medical Device Design</h3>
+                    <p>From the Computer to the Clinic: Prototyping, 3D Printing, and Ergonomics.</p>
+                </div>
+                
+                <div class="category-card card-robotics" onclick="abrirCategoria('robotica')">
+                    <h3>Robotics & Bionic Systems</h3>
+                    <p>Integration of mechatronics for rehabilitation.</p>
+                </div>
+                
+                <div class="category-card card-simulation" onclick="abrirCategoria('simulacion')">
+                    <h3>Modeling & Simulation</h3>
+                    <p>Structural Analysis and Fluid Dynamics Applied to Biology and Engineering.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section-container">
+            <h2 class="section-title">Certificates</h2>
+            
+            <div class="certificates-grid">
+                <a href="titulo_biomedico.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="cert-info">
+                        <h3>Biomedical Engineering</h3>
+                        <p>Yachay Tech University | Ecuador</p>
+                    </div>
+                    <div class="cert-arrow"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+
+                <a href="certificados/Erick Ramiro Iles Velez-171835430-9-SIC1523-2025.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="cert-info">
+                        <h3>Programming with Python & Artificial Intelligence</h3>
+                        <p>Samsung Innovation Campus | Panamá</p>
+                    </div>
+                    <div class="cert-arrow"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+
+                <a href="certificados/ILES VELEZ ERICK RAMIRO.pdf" target="_blank" rel="noopener noreferrer" class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="cert-info">
+                        <h3>ANSYS - Finite Eleemnt Method Simulation</h3>
+                        <p>Ministry of Labor | Ecuador </p>
+                    </div>
+                    <div class="cert-arrow"><i class="fas fa-external-link-alt"></i></div>
+                </a>
+            </div>
+        </section>
+
+        <section id="skills" class="section-container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category-card">
+                    <h3><i class="fas fa-microchip"></i> Simulation & Analysis</h3>
+                    <div class="skills-tags">
+                        <span>ANSYS</span>
+                        <span>OpenSim</span>
+                        <span>COMSOL Multiphysics</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3><i class="fas fa-cube"></i> CAD/CAM & Prototyping</h3>
+                    <div class="skills-tags">
+                        <span>Fusion 360</span>
+                        <span>Solidworks 2021</span>
+                        <span>Inventor</span>
+                        <span>3D Printing</span>
+                        <span>3D Slicer</span>
+                        <span>Blender</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3><i class="fas fa-code"></i> Programming & AI</h3>
+                    <div class="skills-tags">
+                        <span>Python</span>
+                        <span>MATLAB</span>
+                        <span>Web designer</span>
+                        <span>Machine Learning</span>
+                        
+                    </div>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3><i class="fas fa-globe"></i> Languages</h3>
+                    <div class="skills-tags">
+                        <span>Spanish (Native)</span>
+                        <span>English (Professional)</span>
+                        <span>German (Beginner)</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card">
+                    <h3><i class="fas fa-camera"></i> Multimedia</h3>
+                    <div class="skills-tags">
+                        <span>Adobe Photoshop</span>
+                        <span>Adobe Illustrator</span>
+                        <span>Adobe Afther Effects</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    <div id="modal-proyectos" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="cerrarModal()">&times;</button>
+            <h2 id="modal-titulo">Categoría</h2>
+            <div id="modal-galeria" class="proyectos-grid">
+                </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <div id="modal-3d" class="modal-overlay">
+        <div class="modal-content visor-container">
+            <button class="close-btn" onclick="cerrarVisor3D()">&times;</button>
+            <h2 id="titulo-3d">Visor 3D</h2>
+            
+            <div id="contenedor-canvas"></div> 
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+/* =========================================================
+   ESTILOS GLOBALES Y VARIABLES
+   ========================================================= */
+:root {
+    /* Paleta inspirada en "Deep Blue Premium" */
+    --bg-dark-blue: #061c40; 
+    --bg-gradient: radial-gradient(circle at 50% 0%, #1a56a6 0%, #061c40 100%);
+    --text-main: #ffffff;
+    --text-muted: #a4bde0;
+    
+    /* Efectos de "Vidrio" (Glassmorphism) para las tarjetas */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* El desplazamiento suave para los botones del menú */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    background-color: var(--bg-dark-blue); /* Color de respaldo */
+    background-attachment: fixed; /* El fondo no se mueve al hacer scroll */
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   1. NAVEGACIÓN SUPERIOR (Header)
+   ========================================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Efecto de barra superior semi-transparente */
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-bottom: none;
+    z-index: 1000;
+}
+
+.logo {
+    max-height: 40px;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s, opacity 0.3s;
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Botón estilo "Borde" (Outline) similar a la imagen de Pepsi */
+.btn-download {
+    border: 1px solid var(--text-main);
+    background: transparent;
+    color: var(--text-main);
+    padding: 10px 24px;
+    border-radius: 30px; /* Bordes muy redondeados */
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background: var(--text-main);
+    color: var(--bg-dark-blue);
+}
+
+/* =========================================================
+   2. BARRA SOCIAL LATERAL (Aside)
+   ========================================================= */
+.social-sidebar {
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    z-index: 100;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    /* TRUCO PRO: Si tus iconos png son de color negro, 
+       esta línea los vuelve color blanco automáticamente para que resalten */
+    filter: brightness(0) invert(1); 
+}
+
+.social-icon:hover {
+    opacity: 1;
+    transform: scale(1.2); /* Se agranda un poco al pasar el mouse */
+}
+
+/* =========================================================
+   3. CONTENEDOR PRINCIPAL Y SECCIONES
+   ========================================================= */
+main {
+    margin-left: 100px; /* Deja espacio para la barra social */
+    padding: 0 50px;
+    max-width: 1200px;
+    margin-right: auto;
+}
+
+.section-container {
+    /* Cada sección ocupa al menos el alto de la pantalla */
+    min-height: 100vh; 
+    padding-top: 100px; /* Compensa la barra de navegación fija */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 300; /* Letra más delgada y elegante */
+    letter-spacing: 1px;
+}
+
+/* --- Hero Section (About me) --- */
+.hero {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+.hero-image-container {
+    flex: 0.8;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image {
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Áreas de Experiencia (Cards) --- */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    /* Mantenemos bordes y forma */
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 40px 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Configuración para la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Necesario para posicionar el overlay oscuro */
+    position: relative; 
+    overflow: hidden; /* Mantiene todo dentro de los bordes redondeados */
+    
+    /* Para que las tarjetas tengan una altura mínima agradable */
+    min-height: 250px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Texto abajo */
+}
+
+/* EL TRUCO DE DISEÑO: Capa oscura para legibilidad (Overlay) */
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado oscuro de arriba hacia abajo para asegurar que el texto se lea */
+    background: linear-gradient(180deg, rgba(6, 28, 64, 0.2) 0%, rgba(6, 28, 64, 0.9) 100%);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+/* Asegurar que el texto esté por ENCIMA de la capa oscura */
+.category-card h3, 
+.category-card p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra al texto para más contraste */
+}
+
+/* EFECTO HOVER: La tarjeta se eleva y se ilumina un poco */
+.category-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.category-card:hover::before {
+    /* Al pasar el mouse, aclaramos un poco el fondo */
+    background: linear-gradient(180deg, rgba(6, 28, 64, 0.1) 0%, rgba(6, 28, 64, 0.7) 100%);
+}
+
+.category-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.category-card p {
+    color: #e0e6ed; /* Un gris muy claro para el párrafo sobre la imagen */
+    font-size: 0.95rem;
+}
+
+/* =========================================================
+   ASIGNACIÓN DE IMÁGENES DE FONDO ESPECÍFICAS
+   Asegúrate de tener estos archivos en tu carpeta
+   ========================================================= */
+.card-surgical {
+    background-image: url('ima_targetas/planificacion.jpg');
+}
+
+.card-medical {
+    background-image: url('ima_targetas/dispocitivos.jpg');
+}
+
+.card-robotics {
+    background-image: url('ima_targetas/bionica.jpg');
+}
+
+.card-simulation {
+    background-image: url('ima_targetas/simulacion.jpg');
+}
+
+/* --- Certificados y Habilidades --- */
+.certificates-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px; /* Evita que las barras sean demasiado anchas */
+    margin: 0 auto; /* Centra la lista en la pantalla */
+    width: 100%;
+}
+
+.cert-card {
+    display: flex;
+    align-items: center;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 25px 35px;
+    text-decoration: none; /* Quita la línea de enlace */
+    color: var(--text-main);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.cert-card:hover {
+    transform: translateX(15px); /* Se desliza suavemente a la derecha */
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #0ea5e9; /* El borde se pinta de color cian tecnológico */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cert-icon {
+    font-size: 2.2rem;
+    color: #0ea5e9; /* Color de acento para los iconos */
+    margin-right: 30px;
+    width: 50px;
+    text-align: center;
+}
+
+.cert-info {
+    flex: 1; /* Hace que el texto ocupe todo el espacio disponible */
+}
+
+.cert-info h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.cert-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.cert-arrow {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.2); /* Icono de flechita casi invisible al inicio */
+    transition: color 0.3s ease;
+}
+
+.cert-card:hover .cert-arrow {
+    color: #0ea5e9; /* La flechita se ilumina al pasar el mouse */
+}
+
+/* --- Habilidades (Tarjetas y Badges Flotantes) --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.skill-category-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-category-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(14, 165, 233, 0.4); /* El borde brilla en cian al pasar el mouse por la tarjeta */
+}
+
+.skill-category-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+}
+
+.skill-category-card h3 i {
+    color: #0ea5e9; /* Iconos en color cian */
+    font-size: 1.3rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-tags span {
+    background: rgba(14, 165, 233, 0.05); /* Fondo casi transparente */
+    border: 1px solid rgba(14, 165, 233, 0.3); /* Borde sutil cian */
+    color: #e0e6ed;
+    padding: 8px 16px;
+    border-radius: 20px; /* Bordes redondeados estilo "píldora" */
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* El efecto luminoso al pasar el mouse por cada habilidad */
+.skills-tags span:hover {
+    background: #0ea5e9;
+    color: #ffffff;
+    border-color: #0ea5e9;
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.5); /* Resplandor biónico */
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   4. DISEÑO RESPONSIVO (Para celulares y tablets)
+   ========================================================= */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .social-sidebar {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin: 120px 0 30px 0; /* Espacio para el navbar expandido */
+    }
+
+    main {
+        margin-left: 0;
+        padding: 0 20px;
+    }
+
+    .hero {
+        flex-direction: column-reverse; /* Foto arriba, texto abajo en móviles */
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .hero-image-container {
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   5. VENTANA MODAL (Proyectos)
+   ========================================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(6, 28, 64, 0.85); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(8px); /* Efecto vidrio esmerilado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    
+    /* Oculto por defecto */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Clase que JavaScript añadirá para mostrar la ventana */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--bg-dark-blue);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 85vh;
+    padding: 40px;
+    overflow-y: auto; /* Permite hacer scroll si hay muchos proyectos */
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: var(--text-muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #ffffff;
+}
+
+#modal-titulo {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 15px;
+}
+
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.proyecto-card {
+    background: var(--glass-bg);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.proyecto-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.proyecto-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.btn-3d {
+    display: inline-block;
+    padding: 8px 15px;
+    background: rgba(14, 165, 233, 0.2);
+    border: 1px solid #0ea5e9;
+    color: #0ea5e9;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-3d:hover {
+    background: #0ea5e9;
+    color: #ffffff;
+}
+
+/* =========================================================
+   6. VISOR 3D (Three.js)
+   ========================================================= */
+.visor-container {
+    height: 85vh; /* Ocupa casi toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+}
+
+#contenedor-canvas {
+    flex: 1;
+    width: 100%;
+    background: radial-gradient(circle at center, #1a2942 0%, #020617 100%); /* Fondo oscuro de laboratorio */
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    cursor: grab; /* Muestra una manito para indicar que se puede arrastrar */
+}
+
+#contenedor-canvas:active {
+    cursor: grabbing; /* La manito se cierra al hacer clic y rotar */
+}
